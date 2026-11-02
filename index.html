@@ -1,0 +1,463 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>
+:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0}img{max-width:100%}[hidden]{display:none!important}
+</style>
+<title>Beth Hills</title>
+<meta name="description" content="Beth Hills: product manager, mural designer and English MA.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&display=swap">
+<style>
+/* Layout: a map with a legend. Hero (headline + family photo in a mural sunburst), a three-item legend, then one band per territory: Product, Art, Writing, Contact. */
+:root {
+  --paper: #F6F0E1;
+  --paper-2: #EDE4CE;
+  --ink: #1B2238;
+  --ink-soft: #4A5170;
+  --marigold: #E9B949;
+  --poppy: #D9502A;
+  --periwinkle: #5A7BC0;
+  --pink: #E39FC6;
+  --green: #1E4B45;
+  --cream: #F3E7C9;
+  --rule: #D8CDB2;
+  --card: #FFFBF1;
+  --display: "Bricolage Grotesque", "Arial Narrow", system-ui, sans-serif;
+  --body: "Literata", Georgia, "Times New Roman", serif;
+  --gutter-l: max(16px, env(safe-area-inset-left, 0px));
+  --gutter-r: max(16px, env(safe-area-inset-right, 0px));
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #151B2E; --paper-2: #1C2440; --ink: #F3ECDA; --ink-soft: #B9B6C6;
+    --marigold: #F0C25A; --poppy: #F0754D; --periwinkle: #8EA8E3; --pink: #EDB3D4; --green: #6FB3A6;
+    --rule: #2E3756; --card: #1E2643; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #151B2E; --paper-2: #1C2440; --ink: #F3ECDA; --ink-soft: #B9B6C6;
+  --marigold: #F0C25A; --poppy: #F0754D; --periwinkle: #8EA8E3; --pink: #EDB3D4; --green: #6FB3A6;
+  --rule: #2E3756; --card: #1E2643; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { animation: none !important; transition: none !important; } }
+body {
+  background: var(--paper); color: var(--ink);
+  font-family: var(--body); font-size: 1.0625rem; line-height: 1.65;
+}
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--paper); }
+.wrap { max-width: 1120px; margin: 0 auto; padding-left: var(--gutter-l); padding-right: var(--gutter-r); }
+h1, h2, h3 { font-family: var(--display); line-height: 1.05; text-wrap: balance; margin: 0; }
+p { margin: 0; }
+a { color: inherit; }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--periwinkle); outline-offset: 3px; border-radius: 4px; }
+.label {
+  font-family: var(--display); font-weight: 700; font-size: .78rem;
+  letter-spacing: .14em; text-transform: uppercase; color: var(--ink-soft);
+}
+
+/* Nav */
+header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--paper); border-bottom: 1px solid var(--rule); }
+header.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 14px; flex-wrap: wrap; }
+.mark { font-family: var(--display); font-weight: 800; font-size: 1.25rem; text-decoration: none; letter-spacing: -.01em; }
+nav { display: flex; gap: 4px 20px; flex-wrap: wrap; }
+nav a { font-family: var(--display); font-weight: 600; text-decoration: none; font-size: .98rem; }
+nav a:hover { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 4px; }
+
+/* Hero */
+.hero .wrap { display: grid; grid-template-columns: 1.15fr .85fr; gap: clamp(28px, 5vw, 64px); align-items: center; padding-block: clamp(40px, 7vw, 88px); }
+.hero-text { display: grid; gap: 22px; min-width: 0; }
+.hero h1 { font-size: clamp(2.6rem, 6.4vw, 5rem); font-weight: 800; font-variation-settings: "wdth" 82; letter-spacing: -.02em; }
+.hero h1 em { font-style: normal; color: var(--poppy); }
+.hero h1 .w2 { color: var(--periwinkle); }
+.hero h1 .w3 { color: var(--green); }
+.hero h1 .w4 { color: var(--marigold); }
+.hero p { max-width: 58ch; }
+.hero .coords { font-family: var(--display); font-weight: 600; font-size: .85rem; letter-spacing: .08em; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+.sun { position: relative; aspect-ratio: 4 / 5; max-width: 100%; display: grid; place-items: center; }
+.sun::before {
+  content: ""; position: absolute; inset: -6% -10% 18% -10%; border-radius: 50% 50% 0 0;
+  background: repeating-conic-gradient(from -90deg at 50% 100%, var(--marigold) 0 10deg, var(--cream) 10deg 20deg);
+  opacity: .9;
+}
+.sun img { position: relative; width: 78%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 62%; border: 6px solid var(--card); box-shadow: 0 18px 40px -20px rgba(27,34,56,.55); }
+
+/* Legend */
+.legend { border-block: 1px solid var(--rule); background: var(--paper-2); }
+.legend .wrap { display: grid; grid-template-columns: auto repeat(4, 1fr); gap: 20px 32px; align-items: start; padding-block: 28px; }
+.legend a { display: grid; grid-template-columns: 22px 1fr; gap: 4px 12px; text-decoration: none; min-width: 0; }
+.legend .sym { width: 22px; height: 22px; grid-row: span 2; margin-top: 4px; }
+.legend strong { font-family: var(--display); font-size: 1.2rem; font-weight: 700; }
+.legend span.d { color: var(--ink-soft); font-size: .95rem; line-height: 1.45; }
+.legend a:hover strong { text-decoration: underline; text-underline-offset: 4px; }
+.sym.p { background: var(--periwinkle); border-radius: 4px; }
+.sym.a { background: var(--poppy); border-radius: 50%; }
+.sym.w { background: var(--green); clip-path: polygon(50% 0, 100% 100%, 0 100%); }
+
+/* Sections */
+section.band { padding-block: clamp(56px, 8vw, 104px); scroll-margin-top: 64px; }
+.band-head { display: grid; gap: 14px; margin-bottom: 40px; max-width: 62ch; }
+.band-head h2 { font-size: clamp(2rem, 4.4vw, 3.2rem); font-weight: 800; font-variation-settings: "wdth" 85; letter-spacing: -.015em; }
+.band-head .label { display: flex; align-items: center; gap: 10px; }
+.band-head .label .sym { width: 14px; height: 14px; margin: 0; }
+
+/* Product */
+.product-grid { display: grid; grid-template-columns: 1.6fr 1fr; gap: 48px; }
+.timeline { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; border-left: 2px solid var(--rule); min-width: 0; }
+.timeline li { position: relative; padding: 0 0 30px 26px; display: grid; gap: 6px; }
+.timeline li::before { content: ""; position: absolute; left: -7px; top: 8px; width: 12px; height: 12px; border-radius: 3px; background: var(--periwinkle); }
+.timeline .when { font-family: var(--display); font-weight: 600; font-size: .85rem; color: var(--ink-soft); font-variant-numeric: tabular-nums; letter-spacing: .04em; }
+.timeline h3 { font-size: 1.3rem; font-weight: 700; }
+.timeline h3 span { font-weight: 500; color: var(--ink-soft); }
+.timeline ul { margin: 4px 0 0; padding-left: 1.1em; display: grid; gap: 6px; }
+.side { display: grid; gap: 28px; align-content: start; min-width: 0; }
+.stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
+.stats div { background: var(--card); padding: 18px; display: grid; gap: 2px; }
+.stats b { font-family: var(--display); font-size: 2rem; font-weight: 800; color: var(--periwinkle); line-height: 1; font-variant-numeric: tabular-nums; }
+.stats small { font-size: .88rem; line-height: 1.35; color: var(--ink-soft); }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: 10px 0 0; }
+.chips li { font-family: var(--display); font-size: .88rem; font-weight: 600; padding: 4px 12px; border: 1.5px solid var(--ink); border-radius: 999px; }
+
+/* Community */
+.community { background: var(--paper-2); border-top: 1px solid var(--rule); }
+.sym.c { background: var(--marigold); border-radius: 50%; box-shadow: inset 0 0 0 4px var(--paper-2); outline: 2px solid var(--marigold); outline-offset: -2px; }
+.comm-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+.comm { background: var(--card); border: 1px solid var(--rule); padding: clamp(20px, 3vw, 32px); display: grid; gap: 8px; align-content: start; min-width: 0; }
+.comm .when { font-family: var(--display); font-weight: 600; font-size: .85rem; letter-spacing: .04em; color: var(--ink-soft); }
+.comm h3 { font-size: 1.45rem; font-weight: 700; }
+.comm a { color: var(--poppy); font-family: var(--display); font-weight: 600; }
+@media (max-width: 860px) { .comm-grid { grid-template-columns: 1fr; } }
+
+/* Art */
+.art { background: var(--ink); color: var(--paper); }
+.art .label, .art .band-head p { color: color-mix(in srgb, var(--paper) 78%, var(--ink)); }
+.gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px 32px; }
+.piece { display: grid; gap: 14px; margin: 0; min-width: 0; }
+.piece .imgs { display: grid; grid-template-columns: 1fr; position: relative; }
+.piece button { all: unset; cursor: zoom-in; display: block; }
+.piece button:focus-visible { outline: 3px solid var(--marigold); outline-offset: 3px; }
+.piece .main img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
+.piece .inset { position: absolute; right: 12px; bottom: 12px; width: 36%; border: 4px solid var(--paper); box-shadow: 0 10px 24px -10px rgba(0,0,0,.6); }
+.piece .inset img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
+.piece .inset.wide { width: 52%; }
+.piece .inset.wide img { aspect-ratio: auto; }
+.piece figcaption { display: grid; gap: 4px; }
+.piece h3 { font-size: 1.45rem; font-weight: 700; }
+.piece p { font-size: .97rem; color: color-mix(in srgb, var(--paper) 80%, var(--ink)); }
+.art .note { margin-top: 36px; font-size: .95rem; color: color-mix(in srgb, var(--paper) 72%, var(--ink)); max-width: 62ch; }
+.illo-head { display: grid; gap: 10px; margin: 72px 0 28px; max-width: 62ch; padding-top: 40px; border-top: 1px solid color-mix(in srgb, var(--paper) 22%, var(--ink)); }
+.illo-head h3 { font-size: clamp(1.6rem, 3.2vw, 2.3rem); font-weight: 800; font-variation-settings: "wdth" 85; }
+.illo-head p { color: color-mix(in srgb, var(--paper) 80%, var(--ink)); }
+.illo-head a { color: var(--marigold); }
+.illo-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px 20px; }
+.illo { margin: 0; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.illo button { all: unset; cursor: zoom-in; display: block; }
+.illo button:focus-visible { outline: 3px solid var(--marigold); outline-offset: 3px; }
+.illo img { width: 100%; aspect-ratio: 1; object-fit: cover; display: block; }
+.illo figcaption { font-size: .9rem; line-height: 1.4; color: color-mix(in srgb, var(--paper) 78%, var(--ink)); }
+.process { display: grid; grid-template-columns: minmax(0, 360px) 1fr; gap: 24px; align-items: center; margin-top: 40px; }
+.process video { width: 100%; aspect-ratio: 1; background: #000; display: block; }
+.process p { margin-top: 6px; color: color-mix(in srgb, var(--paper) 80%, var(--ink)); max-width: 44ch; }
+@media (max-width: 860px) { .illo-grid { grid-template-columns: repeat(2, 1fr); } .process { grid-template-columns: 1fr; } }
+dialog { border: 0; padding: 0; background: transparent; max-width: min(1200px, 94vw); }
+dialog::backdrop { background: rgba(12,15,26,.88); }
+dialog img { display: block; max-height: 86vh; width: auto; max-width: 100%; }
+dialog form { position: absolute; top: 8px; right: 8px; }
+dialog button { font-family: var(--display); font-weight: 700; background: var(--paper); color: var(--ink); border: 0; padding: 8px 14px; cursor: pointer; }
+
+/* Writing */
+.thesis { display: grid; grid-template-columns: .9fr 1.1fr; gap: 48px; align-items: start; }
+.title-card { background: var(--card); border: 1px solid var(--rule); padding: clamp(24px, 4vw, 40px); display: grid; gap: 16px; min-width: 0; }
+.title-card h3 { font-family: var(--body); font-weight: 600; font-size: clamp(1.4rem, 2.6vw, 1.85rem); line-height: 1.25; }
+.title-card h3 i { font-weight: 400; }
+.title-card dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 6px 16px; font-size: .95rem; }
+.title-card dt { font-family: var(--display); font-weight: 600; color: var(--ink-soft); }
+.title-card dd { margin: 0; }
+.btn { display: inline-flex; align-items: center; gap: 8px; font-family: var(--display); font-weight: 700; text-decoration: none; background: var(--ink); color: var(--paper); padding: 10px 18px; justify-self: start; border: 0; cursor: pointer; font-size: 1rem; }
+.btn:hover { background: var(--green); }
+.thesis-body { display: grid; gap: 18px; max-width: 62ch; min-width: 0; }
+.thesis-body blockquote { margin: 0; padding-left: 18px; border-left: 3px solid var(--green); font-style: italic; color: var(--ink-soft); }
+.chapters { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; counter-reset: ch; }
+.chapters li { counter-increment: ch; display: grid; grid-template-columns: 2.2em 1fr; }
+.chapters li::before { content: counter(ch, upper-roman) "."; font-family: var(--display); font-weight: 700; color: var(--green); }
+
+/* Contact */
+.contact { background: var(--paper-2); border-top: 1px solid var(--rule); }
+.contact .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: end; }
+.contact h2 { font-size: clamp(2rem, 4.4vw, 3.2rem); font-weight: 800; font-variation-settings: "wdth" 85; }
+.contact-list { display: grid; gap: 14px; }
+.row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; padding-bottom: 14px; border-bottom: 1px solid var(--rule); }
+.row .label { width: 6.5em; }
+.row .v { font-family: var(--display); font-size: 1.2rem; font-weight: 600; user-select: all; word-break: break-all; }
+.copy { font-family: var(--display); font-size: .85rem; font-weight: 700; background: none; border: 1.5px solid var(--ink); color: var(--ink); padding: 3px 10px; cursor: pointer; }
+footer { padding-block: 28px; font-size: .88rem; color: var(--ink-soft); }
+footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+
+@media (max-width: 860px) {
+  .hero .wrap, .product-grid, .thesis, .contact .wrap { grid-template-columns: 1fr; }
+  .sun { max-width: 420px; justify-self: center; width: 100%; }
+  .legend .wrap { grid-template-columns: 1fr; }
+  .gallery { grid-template-columns: 1fr; }
+}
+</style>
+<meta property="og:title" content="Beth Hills">
+<meta property="og:description" content="Product manager, mural designer, illustrator and English MA.">
+<meta property="og:image" content="images/beth-and-boys.jpg">
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="mark" href="#top">Beth Hills</a>
+    <nav aria-label="Sections">
+      <a href="#product">Product</a>
+      <a href="#community">Community</a>
+      <a href="#art">Art</a>
+      <a href="#writing">Writing</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-text">
+        <span class="coords">29.42° N, 98.49° W · San Antonio, Texas</span>
+        <h1>I make things for people: <em>products</em>, <span class="w2">stories</span>, <span class="w3">murals</span> and <span class="w4">pictures</span>.</h1>
+        <p>For ten years I've been a product manager in SaaS, most recently at Zapier and Mutiny, turning complicated problem spaces into simple experiences for real people. Before that I earned an MA in English, writing about how Milton used maps to chart who we become. Now I also design murals for the communities and places they live in, and draw illustrations about motherhood and for my boys.</p>
+        <p>It might look like a lot of different careers, but it's one habit: figuring out where people are, where they want to go, and how to draw the way there.</p>
+        <p>Home base is San Antonio, where I live with my husband, our scruffy dog, and our four young sons. I recently took a career break to be home with my boys full time, and they are my favorite (and loudest) collaborators. Now I'm returning to mission-driven work.</p>
+      </div>
+      <div class="sun">
+        <img src="images/beth-and-boys.jpg" alt="Beth sitting in the grass under a live oak, laughing as her four young boys climb on her and hug her.">
+      </div>
+    </div>
+  </section>
+
+  <div class="legend">
+    <div class="wrap">
+      <span class="label">Legend</span>
+      <a href="#product"><i class="sym p"></i><strong>Product</strong><span class="d">A decade of SaaS strategy, research and 0→1 launches</span></a>
+      <a href="#community"><i class="sym c"></i><strong>Community</strong><span class="d">Teaching art and donating murals in local schools</span></a>
+      <a href="#art"><i class="sym a"></i><strong>Art</strong><span class="d">Illustrations about motherhood, art for my kids, murals for schools</span></a>
+      <a href="#writing"><i class="sym w"></i><strong>Writing</strong><span class="d">An English MA on maps in <i>Paradise Lost</i></span></a>
+    </div>
+  </div>
+
+  <section class="band" id="product">
+    <div class="wrap">
+      <div class="band-head">
+        <span class="label"><i class="sym p"></i>Product</span>
+        <h2>Complex problems, simple experiences.</h2>
+        <p>I do my best work in tangled problem spaces, turning them into experiences that solve real problems for real humans. I'm comfortable zoomed all the way out on strategy and all the way in on the details. I started out helping cancer survivors at Livestrong, came to product from engineering, and still like working closely with the people who build.</p>
+      </div>
+      <div class="product-grid">
+        <ol class="timeline">
+          <li>
+            <span class="when">2023–2024</span>
+            <h3>Lead PM &amp; Interim Head of Product <span>· Mutiny</span></h3>
+            <p>Led generative research that defined a new strategic opportunity and persona for the company, then turned it into the Enterprise product strategy and a roadmap toward a five-year vision.</p>
+          </li>
+          <li>
+            <span class="when">2017–2022</span>
+            <h3>Product Manager → Group Product Manager <span>· Zapier</span></h3>
+            <ul>
+              <li><b>Group PM (2022).</b> Managed four PMs, from early career to senior, across account administration, Zap management and account monitoring. Set the zone's vision and success metrics, and led pricing and go-to-market for new features. Our launches at the annual user conference beat adoption, engagement and retention targets.</li>
+              <li><b>Lead PM (2021–22).</b> Led cross-team strategy for roles, permissions and entities, plus the services and APIs behind them, and shaped strategy for new-user onboarding.</li>
+              <li><b>Senior PM (2020–21).</b> Led Zap Sharing, a new product and acquisition channel, from foundational research through MVP, beta and full launch, including an automated review system for the content users shared.</li>
+              <li><b>PM (2017–20).</b> Owned the Zap Editor, Zapier's core product. Launched Paths, users' most-requested feature; built a system so users never lost data when Zaps paused, adding 1M+ billable tasks; and built the review-and-publish system behind partner integration templates.</li>
+            </ul>
+          </li>
+          <li>
+            <span class="when">2014–2016</span>
+            <h3>Solutions Engineer &amp; Senior Data Engineer <span>· Umbel</span></h3>
+            <p>Built customer data integrations, then grew and led a team of data engineers.</p>
+          </li>
+          <li>
+            <span class="when">2011–2014 · Where it started</span>
+            <h3>Stewardship Manager <span>· LIVESTRONG Foundation</span></h3>
+            <p>My career began in nonprofit work, alongside a mission of helping cancer survivors navigate the complexities of treatment and survivorship. It gave me a human-centered foundation I still work from, and it pushed me to learn to code so I could build real solutions that helped people.</p>
+            <ul>
+              <li>Managed a portfolio of major donors and fundraisers giving more than $8M a year, focused on year-over-year retention. Their giving funded survivorship programs, including mental health support for cancer patients, caregivers and families.</li>
+              <li>Project-managed Ride for the Roses, Livestrong's yearly event for donors and fundraisers.</li>
+            </ul>
+          </li>
+        </ol>
+        <aside class="side">
+          <div class="stats">
+            <div><b>10 yrs</b><small>building SaaS products</small></div>
+            <div><b>4×</b><small>upgrade rate for Zap Sharing users</small></div>
+            <div><b>~20%</b><small>higher activation through Zap Sharing</small></div>
+            <div><b>1M+</b><small>more billable tasks from a new task system</small></div>
+          </div>
+          <div>
+            <span class="label">Toolkit</span>
+            <ul class="chips">
+              <li>Product strategy</li><li>0→1 development</li><li>User research</li><li>Market research</li>
+              <li>Systems thinking</li><li>Data analysis</li><li>Stakeholder management</li><li>Agile</li>
+              <li>Mentorship</li><li>Remote teams</li>
+            </ul>
+          </div>
+          <div>
+            <span class="label">Training</span>
+            <p style="margin-top:8px">Software Engineering, MakerSquare (2014)<br>MA in English, Stony Brook University (2010)<br>BA in English, University of Texas (2008)</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="band community" id="community">
+    <div class="wrap">
+      <div class="band-head">
+        <span class="label"><i class="sym c"></i>Community</span>
+        <h2>Art for kids in local schools.</h2>
+        <p>In my free time, I volunteer teaching art at my children's elementary school, and I design and donate murals to local elementary schools.</p>
+      </div>
+      <div class="comm-grid">
+        <article class="comm">
+          <span class="when">ArtSmart volunteer</span>
+          <h3>Teaching art in the classroom</h3>
+          <p>Through ArtSmart, a parent volunteer program, I teach art lessons in my children's elementary school classrooms.</p>
+        </article>
+        <article class="comm">
+          <span class="when">Donated mural design</span>
+          <h3>Murals for a bilingual school</h3>
+          <p>I designed and donated a mural series celebrating the school's language, growth, belonging and values, with each design mocked up on its wall. <a href="#art">See the murals ↓</a></p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="band art" id="art">
+    <div class="wrap">
+      <div class="band-head">
+        <span class="label"><i class="sym a"></i>Art · Mural design</span>
+        <h2>Walls that say who a place is.</h2>
+        <p>I design bold, joyful murals for the places and communities they belong to. My recent work is a series for a local bilingual elementary school: bright, graphic pieces that celebrate language, growth and belonging. I create each design and mock it up on the wall it was made for.</p>
+      </div>
+      <div class="gallery">
+        <figure class="piece">
+          <div class="imgs">
+            <button class="main" data-full="images/art/vamos-a-crecer-juntos.jpg" aria-label="Enlarge Vamos a crecer juntos design"><img src="images/art/vamos-a-crecer-juntos.jpg" alt="Mural design: script lettering Vamos a crecer juntos surrounded by folk-art flowers on navy." loading="lazy"></button>
+            <button class="inset" data-full="images/art/vamos-a-crecer-juntos-on-site.jpg" aria-label="Enlarge mockup on the school wall"><img src="images/art/vamos-a-crecer-juntos-on-site.jpg" alt="Mockup of the floral mural on the school building." loading="lazy"></button>
+          </div>
+          <figcaption><h3>Vamos a crecer juntos</h3><p>"Let's grow together," in a garden of folk florals.</p></figcaption>
+        </figure>
+        <figure class="piece">
+          <div class="imgs">
+            <button class="main" data-full="images/art/papel-picado-values-on-site.jpg" aria-label="Enlarge Our Values mockup"><img src="images/art/papel-picado-values-on-site.jpg" alt="Mockup of a long papel picado mural listing the school's values under a covered walkway." loading="lazy"></button>
+            <button class="inset wide" data-full="images/art/our-values.jpg" aria-label="Enlarge Our Values design"><img src="images/art/our-values.jpg" alt="Mural design: rows of colorful papel picado flags with the words Presente, Respetuoso, Inclusivo, Dedicado and Empático." loading="lazy"></button>
+          </div>
+          <figcaption><h3>Our Values</h3><p>Papel picado banners carrying the school's values: presente, respetuoso, inclusivo, dedicado, empático.</p></figcaption>
+        </figure>
+      </div>
+      <p class="note">Shown as designs alongside mockups on the school walls. Select any image to see it larger.</p>
+
+      <div class="illo-head">
+        <span class="label">Illustration</span>
+        <h3>Motherhood, up close.</h3>
+        <p>I also draw about motherhood, honestly and with a sense of humor, and make stories and pictures for my boys. More of this work lives on Instagram at <a href="https://www.instagram.com/homeiswherethehillsare/" target="_blank" rel="noopener">@homeiswherethehillsare ↗</a>.</p>
+      </div>
+      <div class="illo-grid">
+          <figure class="illo"><button data-full="images/illustration/crib-cuddle.jpg" aria-label="Enlarge: The crib, from above"><img src="images/illustration/crib-cuddle.jpg" alt="A mother curled around her sleeping toddler in a crib, seen from above." loading="lazy"></button><figcaption>The crib, from above</figcaption></figure>
+          <figure class="illo"><button data-full="images/illustration/mom-bod.jpg" aria-label="Enlarge: The noise around a postpartum body"><img src="images/illustration/mom-bod.jpg" alt="A worried new mom holding her baby, surrounded by spiraling headlines like Get your body back and 6 week snapback." loading="lazy"></button><figcaption>The noise around a postpartum body</figcaption></figure>
+          <figure class="illo"><button data-full="images/illustration/water-gun-meeting.jpg" aria-label="Enlarge: Working from home, under fire"><img src="images/illustration/water-gun-meeting.jpg" alt="A mom on a video call shrieks as her grinning son sprays her with a water gun." loading="lazy"></button><figcaption>Working from home, under fire</figcaption></figure>
+          <figure class="illo"><button data-full="images/illustration/alien-meeting.jpg" aria-label="Enlarge: The same scene, as my son sees it"><img src="images/illustration/alien-meeting.jpg" alt="The same scene reimagined: an astronaut boy with a ray gun and a tentacled alien mom on a video call in a flying saucer." loading="lazy"></button><figcaption>The same scene, as my son sees it</figcaption></figure>
+          <figure class="illo"><button data-full="images/illustration/fox-and-kit.jpg" aria-label="Enlarge: Fox and kit at sunrise"><img src="images/illustration/fox-and-kit.jpg" alt="A mother fox and her kit touching paws in a meadow at sunrise." loading="lazy"></button><figcaption>Fox and kit at sunrise</figcaption></figure>
+          <figure class="illo"><button data-full="images/illustration/pumpkin-bear.jpg" aria-label="Enlarge: A bear and his pumpkin"><img src="images/illustration/pumpkin-bear.jpg" alt="A small bear hugging a pumpkin in a misty forest." loading="lazy"></button><figcaption>A bear and his pumpkin</figcaption></figure>
+          <figure class="illo"><button data-full="images/illustration/show-up-anyway.jpg" aria-label="Enlarge: Hand lettering, words by Glennon Doyle"><img src="images/illustration/show-up-anyway.jpg" alt="Hand lettering: Be messy and complicated and afraid and show up anyway, a quote from Glennon Doyle." loading="lazy"></button><figcaption>Hand lettering, words by Glennon Doyle</figcaption></figure>
+          <figure class="illo"><button data-full="images/illustration/hello-summer.jpg" aria-label="Enlarge: Hello Summer"><img src="images/illustration/hello-summer.jpg" alt="Hello Summer lettering surrounded by a mom in a sun hat, a baby with a beach ball, a boy on a float, flamingos and popsicles." loading="lazy"></button><figcaption>Hello Summer</figcaption></figure>
+      </div>
+      <div class="process">
+        <video src="images/illustration/hello-summer-process.mp4" poster="images/illustration/hello-summer-process-poster.jpg" controls muted playsinline preload="none" aria-label="Time-lapse of Hello Summer being drawn, from sketch to final color."></video>
+        <div><span class="label">Process</span><p>Watch <i>Hello Summer</i> come together, from loose pencil sketch to line work to final color.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="writing">
+    <div class="wrap">
+      <div class="band-head">
+        <span class="label"><i class="sym w"></i>Writing</span>
+        <h2>Reading the map in Milton.</h2>
+      </div>
+      <div class="thesis">
+        <div class="title-card">
+          <span class="label">Master's thesis · 2010</span>
+          <h3>Old versus New: Cartographic Discourse and Mapping the Protestant Identity in <i>Paradise Lost</i></h3>
+          <dl>
+            <dt>Degree</dt><dd>MA in English, Stony Brook University</dd>
+            <dt>Advisor</dt><dd>Ayesha Ramachandran</dd>
+            <dt>Published as</dt><dd>Bethany Nagel</dd>
+          </dl>
+          <a class="btn" href="https://commons.library.stonybrook.edu/stony-brook-theses-and-dissertations-collection/1819" target="_blank" rel="noopener">Read the full thesis ↗</a>
+        </div>
+        <div class="thesis-body">
+          <blockquote>"The world was all before them, where to choose / Their place of rest, and providence their guide." <span style="font-style:normal">(XII.646–47)</span></blockquote>
+          <p><i>Paradise Lost</i> ends with Adam and Eve walking into a world they have no map for. My thesis asks what maps meant to Milton's readers, at a time when new geometric maps based on Ptolemy's <i>Geography</i> were replacing the symbolic medieval <i>mappaemundi</i>.</p>
+          <p>I argue that Milton plays the two against each other. Satan surveys the world like a cartographer, measuring space and ignoring meaning. Adam is given a cosmographic vision in which place is also temporal and spiritual. Because every map assumes a viewer, the poem keeps returning to how a person and a place shape each other.</p>
+          <ol class="chapters">
+            <li>Milton and Mapping</li>
+            <li>Hell: Satan's Rebellion of Place</li>
+            <li>The Hill of Speculation: Cartography versus Cosmography</li>
+            <li>Living Maps: Milton, Adam, and the Reader</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band contact" id="contact">
+    <div class="wrap">
+      <div class="band-head" style="margin:0">
+        <span class="label">Contact</span>
+        <h2>Let's make something together.</h2>
+        <p>Product roles, mural commissions, or just a good conversation about Milton. The best way to reach me is a message on LinkedIn.</p>
+      </div>
+      <div class="contact-list">
+        <div class="row"><span class="label">LinkedIn</span><a class="v" href="https://www.linkedin.com/in/bethany-hills/" target="_blank" rel="noopener">in/bethany-hills ↗</a></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap"><span>© 2026 Beth Hills</span><span>San Antonio, Texas</span></div></footer>
+
+<dialog id="lightbox" aria-label="Enlarged image">
+  <form method="dialog"><button type="submit">Close</button></form>
+  <img id="lightbox-img" alt="">
+</dialog>
+
+<script>
+const box = document.getElementById('lightbox');
+const boxImg = document.getElementById('lightbox-img');
+document.querySelectorAll('.piece button, .illo button').forEach(b => {
+  b.addEventListener('click', () => {
+    boxImg.src = b.dataset.full;
+    boxImg.alt = b.querySelector('img').alt;
+    box.showModal();
+  });
+});
+box.addEventListener('click', e => { if (e.target === box) box.close(); });
+document.querySelectorAll('[data-copy]').forEach(b => {
+  b.addEventListener('click', () => {
+    const el = document.getElementById(b.dataset.copy);
+    const done = () => { b.textContent = 'Copied'; setTimeout(() => b.textContent = 'Copy', 1600); };
+    navigator.clipboard.writeText(el.textContent).then(done).catch(() => {
+      const r = document.createRange(); r.selectNodeContents(el);
+      const s = getSelection(); s.removeAllRanges(); s.addRange(r);
+    });
+  });
+});
+</script>
+
+</body>
+</html>
