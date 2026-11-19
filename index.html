@@ -74,6 +74,7 @@ nav a { font-family: var(--display); font-weight: 600; text-decoration: none; fo
 nav a:hover { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 4px; }
 
 /* Hero */
+.hero { overflow-x: clip; }
 .hero .wrap { display: grid; grid-template-columns: 1.15fr .85fr; gap: clamp(28px, 5vw, 64px); align-items: center; padding-block: clamp(40px, 7vw, 88px); }
 .hero-text { display: grid; gap: 22px; min-width: 0; }
 .hero h1 { font-size: clamp(2.6rem, 6.4vw, 5rem); font-weight: 800; font-variation-settings: "wdth" 82; letter-spacing: -.02em; }
@@ -93,7 +94,7 @@ nav a:hover { text-decoration: underline; text-decoration-thickness: 2px; text-u
 
 /* Legend */
 .legend { border-block: 1px solid var(--rule); background: var(--paper-2); }
-.legend .wrap { display: grid; grid-template-columns: auto repeat(4, 1fr); gap: 20px 32px; align-items: start; padding-block: 28px; }
+.legend .wrap { display: grid; grid-template-columns: auto repeat(5, 1fr); gap: 20px 32px; align-items: start; padding-block: 28px; }
 .legend a { display: grid; grid-template-columns: 22px 1fr; gap: 4px 12px; text-decoration: none; min-width: 0; }
 .legend .sym { width: 22px; height: 22px; grid-row: span 2; margin-top: 4px; }
 .legend strong { font-family: var(--display); font-size: 1.2rem; font-weight: 700; }
@@ -127,6 +128,20 @@ section.band { padding-block: clamp(56px, 8vw, 104px); scroll-margin-top: 64px; 
 .chips { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: 10px 0 0; }
 .chips li { font-family: var(--display); font-size: .88rem; font-weight: 600; padding: 4px 12px; border: 1.5px solid var(--ink); border-radius: 999px; }
 
+/* Products */
+.products { border-top: 1px solid var(--rule); }
+.sym.b { background: var(--pink); border-radius: 4px 4px 4px 0; }
+.app { display: grid; grid-template-columns: .9fr 1.1fr; background: var(--card); border: 1px solid var(--rule); min-width: 0; }
+.app-face { background: var(--marigold); color: #1B2238; padding: clamp(24px, 4vw, 44px); display: grid; gap: 16px; align-content: start; min-width: 0; }
+.app-icon { width: 64px; height: 64px; border-radius: 16px; background: var(--cream); display: grid; place-items: center; box-shadow: 0 10px 22px -12px rgba(27,34,56,.6); }
+.app-icon svg { width: 34px; height: 34px; }
+.app-face h3 { font-size: clamp(1.8rem, 3.4vw, 2.5rem); font-weight: 800; font-variation-settings: "wdth" 85; letter-spacing: -.01em; }
+.app-face .tag { font-size: 1.15rem; line-height: 1.45; }
+.status { justify-self: start; font-family: var(--display); font-weight: 700; font-size: .82rem; letter-spacing: .08em; text-transform: uppercase; padding: 4px 12px; border-radius: 999px; background: #1B2238; color: #F6F0E1; }
+.app-body { padding: clamp(24px, 4vw, 44px); display: grid; gap: 16px; align-content: start; min-width: 0; }
+.app-body ul { margin: 0; padding-left: 1.1em; display: grid; gap: 8px; }
+.app-body .btn { margin-top: 6px; }
+@media (max-width: 860px) { .app { grid-template-columns: 1fr; } }
 /* Community */
 .community { background: var(--paper-2); border-top: 1px solid var(--rule); }
 .sym.c { background: var(--marigold); border-radius: 50%; box-shadow: inset 0 0 0 4px var(--paper-2); outline: 2px solid var(--marigold); outline-offset: -2px; }
@@ -220,6 +235,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
     <a class="mark" href="#top">Beth Hills</a>
     <nav aria-label="Sections">
       <a href="#product">Product</a>
+      <a href="#products">Products</a>
       <a href="#community">Community</a>
       <a href="#art">Art</a>
       <a href="#writing">Writing</a>
@@ -248,6 +264,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
     <div class="wrap">
       <span class="label">Legend</span>
       <a href="#product"><i class="sym p"></i><strong>Product</strong><span class="d">A decade of SaaS strategy, research and 0→1 launches</span></a>
+      <a href="#products"><i class="sym b"></i><strong>Products</strong><span class="d">Apps I'm building, starting with Family Health Binder</span></a>
       <a href="#community"><i class="sym c"></i><strong>Community</strong><span class="d">Teaching art and donating murals in local schools</span></a>
       <a href="#art"><i class="sym a"></i><strong>Art</strong><span class="d">Illustrations about motherhood, art for my kids, murals for schools</span></a>
       <a href="#writing"><i class="sym w"></i><strong>Writing</strong><span class="d">An English MA on maps in <i>Paradise Lost</i></span></a>
@@ -314,6 +331,36 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
           </div>
         </aside>
       </div>
+    </div>
+  </section>
+
+  <section class="band products" id="products">
+    <div class="wrap">
+      <div class="band-head">
+        <span class="label"><i class="sym b"></i>Products</span>
+        <h2>Things I'm building now.</h2>
+        <p>Outside of a product team, I still can't stop building. These are apps I'm designing and making on my own, for everyday problems families run into.</p>
+      </div>
+      <article class="app">
+        <div class="app-face">
+          <div class="app-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#D9502A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2.5"/><path d="M12 8v6M9 11h6"/></svg>
+          </div>
+          <span class="status">Coming soon · iPhone</span>
+          <h3>Family Health Binder</h3>
+          <p class="tag">Every new doctor's form, filled out in minutes.</p>
+        </div>
+        <div class="app-body">
+          <p>An iPhone app that keeps your whole family's medical history in one place, so filling out a new doctor's or therapist's intake form doesn't mean logging into a handful of patient portals.</p>
+          <ul>
+            <li><b>Family profiles</b> for medications, allergies, conditions, surgeries, immunizations and family history.</li>
+            <li><b>An intake summary</b> for each person, ordered the way intake forms ask for it, ready to copy or share as a PDF.</li>
+            <li><b>Document scanning</b> that reads prescription labels, visit summaries and vaccine records and fills in the details for review.</li>
+            <li><b>Private by design:</b> no account, no server and no tracking. Records stay on the iPhone, encrypted and behind Face ID.</li>
+          </ul>
+          <a class="btn" href="familyhealthbinder/">Visit the app's website →</a>
+        </div>
+      </article>
     </div>
   </section>
 
