@@ -138,6 +138,8 @@ section.band { padding-block: clamp(56px, 8vw, 104px); scroll-margin-top: 64px; 
 .app-face .tag { font-size: 1.15rem; line-height: 1.45; }
 .status { justify-self: start; font-family: var(--display); font-weight: 700; font-size: .82rem; letter-spacing: .08em; text-transform: uppercase; padding: 4px 12px; border-radius: 999px; background: #1B2238; color: #F6F0E1; }
 .app-body { padding: clamp(24px, 4vw, 44px); display: grid; gap: 16px; align-content: start; min-width: 0; }
+.story-head { font-family: var(--display); font-size: 1.45rem; font-weight: 700; line-height: 1.15; margin: 0; }
+.app-body .label { margin-top: 8px; }
 .app-body ul { margin: 0; padding-left: 1.1em; display: grid; gap: 8px; }
 .app-body .btn { margin-top: 6px; }
 @media (max-width: 860px) { .app { grid-template-columns: 1fr; } }
@@ -348,12 +350,15 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
           <p class="tag">Every new doctor's form, filled out in minutes.</p>
         </div>
         <div class="app-body">
-          <p>An iPhone app that keeps your whole family's medical history in one place, so filling out a new doctor's or therapist's intake form doesn't mean logging into a handful of patient portals.</p>
+          <h4 class="story-head">Built for my own family first.</h4>
+          <p>The problem I want to solve with this app is personal. I'm the mother of medically complex children, and I physically carry binders of paper and mentally carry the load of knowing all their medical information. I fill out a lot of forms: new pediatricians, specialists, therapists, school health forms. Every time, I'm logging into different patient portals and digging through old paperwork to remember dates, doses and allergies.</p>
+          <p>So I'm building the app I wanted: one place on my phone that holds everyone's health history and turns it into a ready-to-go summary in minutes. It's private by design, with no account, no server and no tracking, because this is my kids' information too.</p>
+          <span class="label">What it does</span>
           <ul>
             <li><b>Family profiles</b> for medications, allergies, conditions, surgeries, immunizations and family history.</li>
             <li><b>An intake summary</b> for each person, ordered the way intake forms ask for it, ready to copy or share as a PDF.</li>
             <li><b>Document scanning</b> that reads prescription labels, visit summaries and vaccine records and fills in the details for review.</li>
-            <li><b>Private by design:</b> no account, no server and no tracking. Records stay on the iPhone, encrypted and behind Face ID.</li>
+            <li><b>Locked down:</b> records stay on the iPhone, encrypted and behind Face ID.</li>
           </ul>
           <a class="btn" href="familyhealthbinder/">Visit the app's website →</a>
         </div>
