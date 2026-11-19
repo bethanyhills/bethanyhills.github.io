@@ -133,8 +133,7 @@ section.band { padding-block: clamp(56px, 8vw, 104px); scroll-margin-top: 64px; 
 .sym.b { background: var(--pink); border-radius: 4px 4px 4px 0; }
 .app { display: grid; grid-template-columns: .9fr 1.1fr; background: var(--card); border: 1px solid var(--rule); min-width: 0; }
 .app-face { background: var(--marigold); color: #1B2238; padding: clamp(24px, 4vw, 44px); display: grid; gap: 16px; align-content: start; min-width: 0; }
-.app-icon { width: 64px; height: 64px; border-radius: 16px; background: var(--cream); display: grid; place-items: center; box-shadow: 0 10px 22px -12px rgba(27,34,56,.6); }
-.app-icon svg { width: 34px; height: 34px; }
+.app-icon { width: 72px; height: 72px; display: block; border-radius: 16px; box-shadow: 0 10px 22px -12px rgba(27,34,56,.6); }
 .app-face h3 { font-size: clamp(1.8rem, 3.4vw, 2.5rem); font-weight: 800; font-variation-settings: "wdth" 85; letter-spacing: -.01em; }
 .app-face .tag { font-size: 1.15rem; line-height: 1.45; }
 .status { justify-self: start; font-family: var(--display); font-weight: 700; font-size: .82rem; letter-spacing: .08em; text-transform: uppercase; padding: 4px 12px; border-radius: 999px; background: #1B2238; color: #F6F0E1; }
@@ -343,9 +342,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
       </div>
       <article class="app">
         <div class="app-face">
-          <div class="app-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#D9502A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2.5"/><path d="M12 8v6M9 11h6"/></svg>
-          </div>
+          <img class="app-icon" src="images/products/family-health-binder.svg" alt="Family Health Binder app icon" width="72" height="72">
           <span class="status">Coming soon · iPhone</span>
           <h3>Family Health Binder</h3>
           <p class="tag">Every new doctor's form, filled out in minutes.</p>
