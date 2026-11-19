@@ -143,6 +143,40 @@ section.band { padding-block: clamp(56px, 8vw, 104px); scroll-margin-top: 64px; 
 .app-body ul { margin: 0; padding-left: 1.1em; display: grid; gap: 8px; }
 .app-body .btn { margin-top: 6px; }
 @media (max-width: 860px) { .app { grid-template-columns: 1fr; } }
+/* Family Health Binder phone demo (recreated from the app's website) */
+.fhb-demo { justify-self: center; margin-top: 12px; }
+.fhb { --ios-bg: #f4f6fb; --ios-card: #fff; --ios-text: #16202e; --ios-muted: #6b7686; --ios-line: #e1e5ec; --ios-blue: #2b3f75;
+  width: 270px; max-width: 100%; aspect-ratio: 9 / 19.2; background: #1b1f22; border-radius: 44px; padding: 11px; position: relative;
+  box-shadow: 0 30px 60px -20px rgba(15, 25, 50, .45), 0 0 0 1px rgba(0,0,0,.06);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif; }
+.fhb .screen { position: relative; height: 100%; border-radius: 34px; overflow: hidden; background: var(--ios-bg); color: var(--ios-text); font-size: 12.5px; line-height: 1.35; }
+.fhb .island { position: absolute; top: 9px; left: 50%; transform: translateX(-50%); width: 82px; height: 23px; border-radius: 20px; background: #000; z-index: 5; }
+.fhb .statusbar { height: 42px; display: flex; justify-content: space-between; align-items: center; padding: 6px 26px 0; font-size: 12px; font-weight: 600; }
+.fhb .top-band { background: #2b3f75; color: #fff; padding-bottom: 14px; margin-bottom: 12px; }
+.fhb .appnav { padding: 2px 16px 0; }
+.fhb .appnav b { display: block; margin-top: 2px; font-size: 24px; font-weight: 700; letter-spacing: -.01em; line-height: 1.2; }
+.fhb .band-sub { color: #c9d6e8; font-size: 11px; margin-top: 2px; }
+.fhb .group { background: var(--ios-card); border-radius: 11px; margin: 0 12px 12px; overflow: hidden; }
+.fhb .group-label { color: var(--ios-muted); font-size: 10.5px; text-transform: uppercase; letter-spacing: .03em; margin: 0 24px 5px; }
+.fhb .row { display: flex; flex-wrap: nowrap; align-items: center; gap: 10px; padding: 9px 12px; border-bottom: 1px solid var(--ios-line); }
+.fhb .row:last-child { border-bottom: 0; }
+.fhb .grow { flex: 1; min-width: 0; }
+.fhb .k { color: var(--ios-muted); font-size: 10.5px; }
+.fhb .v { font-weight: 500; }
+.fhb .chev { color: #c4c4c7; font-size: 15px; }
+.fhb .avatar { width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; font-weight: 600; font-size: 13px; flex: none; }
+.fhb .a1 { background: #dce6f8; color: #2b3f75; } .fhb .a2 { background: #fce1de; color: #b0322a; } .fhb .a3 { background: #ddefe8; color: #22664f; } .fhb .a4 { background: #ede4f7; color: #5b3e8f; }
+.fhb .tile-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 0 12px; }
+.fhb .tile { background: var(--ios-card); border-radius: 11px; padding: 9px 10px; }
+.fhb .tile b { display: block; font-size: 17px; color: var(--ios-blue); }
+.fhb .tile span { font-size: 10.5px; color: var(--ios-muted); }
+.fhb .person { opacity: 0; animation: fhb-arrive 8s infinite; }
+.fhb .person:nth-child(2) { animation-delay: .25s; }
+.fhb .person:nth-child(3) { animation-delay: .5s; }
+.fhb .person:nth-child(4) { animation-delay: .75s; }
+.fhb .tiles { opacity: 0; animation: fhb-arrive 8s 1.2s infinite; }
+@keyframes fhb-arrive { 0% { opacity: 0; transform: translateY(8px); } 6%, 92% { opacity: 1; transform: none; } 100% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .fhb .person, .fhb .tiles { opacity: 1; } }
 /* Community */
 .community { background: var(--paper-2); border-top: 1px solid var(--rule); }
 .sym.c { background: var(--marigold); border-radius: 50%; box-shadow: inset 0 0 0 4px var(--paper-2); outline: 2px solid var(--marigold); outline-offset: -2px; }
@@ -348,6 +382,28 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
           <span class="status">Coming soon · iPhone</span>
           <h3>Family Health Binder</h3>
           <p class="tag">Every new doctor's form, filled out in minutes.</p>
+          <div class="fhb-demo" aria-hidden="true">
+            <div class="fhb"><div class="screen"><div class="top-band"><div class="statusbar"><span>9:41</span><span>&#9679;&#9679;&#9679; &#9646;</span></div><div class="island"></div>
+              <div class="appnav"><b>Rivera Family</b><div class="band-sub">4 people</div></div></div>
+              <div class="group">
+                <div class="row person"><span class="avatar a1">JR</span><div class="grow"><div class="v">Jordan Rivera</div><div class="k">41 · 3 medications</div></div><span class="chev">›</span></div>
+                <div class="row person"><span class="avatar a2">SR</span><div class="grow"><div class="v">Sam Rivera</div><div class="k">39 · Physical therapy</div></div><span class="chev">›</span></div>
+                <div class="row person"><span class="avatar a3">AR</span><div class="grow"><div class="v">Anna Rivera</div><div class="k">8 · 504 plan</div></div><span class="chev">›</span></div>
+                <div class="row person"><span class="avatar a4">LR</span><div class="grow"><div class="v">Leo Rivera</div><div class="k">5 · Allergy: peanuts</div></div><span class="chev">›</span></div>
+              </div>
+              <div class="tiles">
+                <p class="group-label">Anna at a glance</p>
+                <div class="tile-grid">
+                  <div class="tile"><b>2</b><span>Medications</span></div>
+                  <div class="tile"><b>1</b><span>Allergy</span></div>
+                  <div class="tile"><b>14</b><span>Immunizations</span></div>
+                  <div class="tile"><b>9</b><span>Documents</span></div>
+                  <div class="tile"><b>3</b><span>Providers</span></div>
+                  <div class="tile"><b>2</b><span>Therapies</span></div>
+                </div>
+              </div>
+            </div></div>
+          </div>
         </div>
         <div class="app-body">
           <h4 class="story-head">Built for my own family first.</h4>
